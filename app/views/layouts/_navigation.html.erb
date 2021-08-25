@@ -24,11 +24,15 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li> %>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <li class="nav-item <%= "active" if request.path == edit_user_registration_path%>"> 
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
           </li>
+
         </ul>
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-3 mt-2">
+            <%= fa_icon 'user' %> <%= current_user.full_name %>
+          </li>
           <li class="nav-item">
             <%= link_to("Logout", destroy_user_session_path, class: "btn btn-danger mr-3", method: :delete) %>
           </li>
