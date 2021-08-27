@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    render json: params[:friend] 
+    # render json: params[:friend] This is to check before building the search functionality is the search bar correctly sends the info in the browser/inspect/network
     if params[:friend].present?
       @friend = params[:friend]
       if @friend
