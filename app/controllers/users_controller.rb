@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @friends = current_user.friends
   end
 
+  def show
+    @user = User.find(params[:id])
+    @tracked_stocks = @user.stocks
+  end
+
   def search
     # render json: params[:friend] This is to check before building the search functionality is the search bar correctly sends the info in the browser/inspect/network
     if params[:friend].present?
